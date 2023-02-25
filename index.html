@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kobayashi">
+
+<title>Trabalho final</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Trabalho final</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kobayashi </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="relatórios-reprodutíveis-com-r-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="relatórios-reprodutíveis-com-r-quarto">Relatórios Reprodutíveis com R + Quarto</h2>
+<p>Este é o resultado de um projeto básico feito no ambiente QUARTO, usando linguagem R, dentro do RStudio.</p>
+<p>A ideia deste projeto é aplicar os conceitos vistos nas aulas do curso de extensão: “<a href="https://beatrizmilz.github.io/2023-curso-de-verao-ime-usp-relatorios/">Relatórios Reprodutíveis com R - EaD (Noturno)</a>”, curso de verão 2023, do IME-USP no período de 23/01/2023 à 06/02/2023.</p>
+<p>Este curso foi ministrado pela <strong>Beatriz Milz</strong>, com auxílio dos monitores: <strong>Alan da Silva, Alexandre Moura dos Santos, Beatriz Proença Carvalho, Tatyane Paz Dominguez dos Santos Alves</strong>. Mais detalhes sobre cada um podem ser encontrados na seguinte página: https://beatrizmilz.github.io/2023-curso-de-verao-ime-usp-relatorios/profs.html</p>
+<p>—————————//———————————</p>
+</section>
+<section id="análise-de-estados-que-mais-vendem-minérios-por-ano" class="level2">
+<h2 class="anchored" data-anchor-id="análise-de-estados-que-mais-vendem-minérios-por-ano">Análise de estados que mais vendem minérios, por ano</h2>
+<p>Na sequencia, foi realizada uma análise da base de dados da Agência Nacional de Mineração - ANM, para ter uma ideia do montante relacionado a vendas de minérios, em especial do ouro e da prata. Para isso, os datasets escolhidos foram: AMB - Produção bruta AMB - Produção beneficiada</p>
+<p>Nesta análise serão apresentados os estados brasileiros que mais produzem e os que mais beneficiam metais preciosos como o ouro, a prata.</p>
+<p>Da base de dados de produção bruta, inicialmente faz-se necessária a limpeza da base:</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>comment <span class="ot">=</span> <span class="cn">NA</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># importação das bibliotecas:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.0     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.1     ✔ tibble    3.1.8
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'janitor'
+
+The following objects are masked from 'package:stats':
+
+    chisq.test, fisher.test</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ProdBruta <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Producao_Bruta.csv"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 4659 Columns: 14
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): UF, Classe Substância, Substância Mineral, Unidade de Medida - Con...
+dbl  (1): Ano base
+num  (1): Valor Venda (R$)
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ProdBruta <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(ProdBruta)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ProdBruta)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "ano_base"                                                        
+ [2] "uf"                                                              
+ [3] "classe_substancia"                                               
+ [4] "substancia_mineral"                                              
+ [5] "unidade_de_medida_contido"                                       
+ [6] "quantidade_producao_minerio_rom_t"                               
+ [7] "quantidade_contido"                                              
+ [8] "indicacao_contido"                                               
+ [9] "quantidade_venda_t"                                              
+[10] "valor_venda_r"                                                   
+[11] "quantidade_transformacao_consumo_utilizacao_t"                   
+[12] "valor_transformacao_consumo_utilizacao_nesta_mina_r"             
+[13] "quantidade_transferencia_para_transformacao_utilizacao_consumo_t"
+[14] "valor_transferencia_para_transformacao_utilizacao_consumo_r"     </code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ProdBenef <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Producao_Beneficiada.csv"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 2936 Columns: 18
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (14): UF, Classe Substância, Substância Mineral, Unidade de Medida - Pro...
+dbl  (1): Ano base
+num  (3): Valor Venda (R$), Quantidade Consumo/Utilização na Usina, Quantida...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ProdBenef <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(ProdBenef) </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ProdBenef)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "ano_base"                                                             
+ [2] "uf"                                                                   
+ [3] "classe_substancia"                                                    
+ [4] "substancia_mineral"                                                   
+ [5] "unidade_de_medida_producao"                                           
+ [6] "unidade_de_medida_contido"                                            
+ [7] "indicacao_contido"                                                    
+ [8] "unidade_de_medida_venda"                                              
+ [9] "unidade_de_medida_consumo_utilizacao_na_usina"                        
+[10] "unidade_de_medida_transferencia_para_transformacao_utilizacao_consumo"
+[11] "quantidade_producao"                                                  
+[12] "quantidade_contido"                                                   
+[13] "quantidade_venda"                                                     
+[14] "valor_venda_r"                                                        
+[15] "quantidade_consumo_utilizacao_na_usina"                               
+[16] "valor_consumo_utilizacao_na_usina_r"                                  
+[17] "quantidade_transferencia_para_transformacao_utilizacao_consumo"       
+[18] "valor_transferencia_para_transformacao_utilizacao_consumo_r"          </code></pre>
+</div>
+</div>
+<p>Com o intuito exploratório, será feita a abertura de todos tipos de minerais relacionados nas 2 bases de dados de Produção:</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>(ProdBruta_tipos <span class="ot">&lt;-</span> <span class="fu">unique</span>(ProdBruta<span class="sc">$</span>substancia_mineral))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Areia"                                   
+ [2] "Calcário"                                
+ [3] "Saibro"                                  
+ [4] "Rochas Ornamentais"                      
+ [5] "Argilas"                                 
+ [6] "Rochas (Britadas) e Cascalho"            
+ [7] "Sal"                                     
+ [8] "Nióbio"                                  
+ [9] "Gipsita"                                 
+[10] "Zircônio"                                
+[11] "Ferro"                                   
+[12] "Estanho"                                 
+[13] "Ouro"                                    
+[14] "Caulim"                                  
+[15] "Cromo"                                   
+[16] "Manganês"                                
+[17] "Vermiculita e Perlita"                   
+[18] "Areias Industriais"                      
+[19] "Cobre"                                   
+[20] "Bário"                                   
+[21] "Diamante"                                
+[22] "Rochas Ornamentais - Outras"             
+[23] "Dolomito e Magnesita"                    
+[24] "Talco e outras Cargas Minerais"          
+[25] "Níquel"                                  
+[26] "Geodos, Ágatas, Calcedônia, etc"         
+[27] "Diatomita"                               
+[28] "Grafita"                                 
+[29] "Feldspato, Leucita e Nefelina-Sienito"   
+[30] "Fosfato"                                 
+[31] "Gemas"                                   
+[32] "Urânio e outros Radioativos"             
+[33] "Mica"                                    
+[34] "Alumínio (Bauxita)"                      
+[35] "Titânio"                                 
+[36] "Prata"                                   
+[37] "Amianto"                                 
+[38] "Cobalto"                                 
+[39] "Turfa"                                   
+[40] "Quartzo (Cristal) e outros Piezelétricos"
+[41] "Enxofre"                                 
+[42] "Chumbo"                                  
+[43] "Potássio"                                
+[44] "Tântalo"                                 
+[45] "Cianita e outros minerais refratários"   
+[46] "Lítio"                                   
+[47] "Cádmio"                                  
+[48] "Zinco"                                   
+[49] "Tungstênio"                              
+[50] "Carvão Mineral"                          
+[51] "Fluorita e Criolita"                     
+[52] "Monazita e Terras-Raras"                 
+[53] "Minerais Industriais (Outros)"           
+[54] "Berílio"                                 
+[55] "Vanádio"                                 </code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(ProdBenef_tipos <span class="ot">&lt;-</span> <span class="fu">unique</span>(ProdBenef<span class="sc">$</span>substancia_mineral))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Calcário"                                
+ [2] "Rochas (Britadas) e Cascalho"            
+ [3] "Estanho"                                 
+ [4] "Nióbio"                                  
+ [5] "Cromo"                                   
+ [6] "Ferro"                                   
+ [7] "Ouro"                                    
+ [8] "Caulim"                                  
+ [9] "Diamante"                                
+[10] "Cobre"                                   
+[11] "Manganês"                                
+[12] "Níquel"                                  
+[13] "Prata"                                   
+[14] "Argilas"                                 
+[15] "Bário"                                   
+[16] "Diatomita"                               
+[17] "Dolomito e Magnesita"                    
+[18] "Fosfato"                                 
+[19] "Gipsita"                                 
+[20] "Grafita"                                 
+[21] "Talco e outras Cargas Minerais"          
+[22] "Vermiculita e Perlita"                   
+[23] "Areias Industriais"                      
+[24] "Areia"                                   
+[25] "Rochas Ornamentais"                      
+[26] "Cobalto"                                 
+[27] "Titânio"                                 
+[28] "Amianto"                                 
+[29] "Gemas"                                   
+[30] "Alumínio (Bauxita)"                      
+[31] "Chumbo"                                  
+[32] "Lítio"                                   
+[33] "Tântalo"                                 
+[34] "Zinco"                                   
+[35] "Cianita e outros minerais refratários"   
+[36] "Enxofre"                                 
+[37] "Feldspato, Leucita e Nefelina-Sienito"   
+[38] "Tungstênio"                              
+[39] "Zircônio"                                
+[40] "Carvão Mineral"                          
+[41] "Fluorita e Criolita"                     
+[42] "Monazita e Terras-Raras"                 
+[43] "Turfa"                                   
+[44] "Saibro"                                  
+[45] "Potássio"                                
+[46] "Minerais Industriais (Outros)"           
+[47] "Rochas Ornamentais - Outras"             
+[48] "Platina (Grupo da)"                      
+[49] "Quartzo (Cristal) e outros Piezelétricos"
+[50] "Vanádio"                                 </code></pre>
+</div>
+</div>
+<p>Calculo do valor total de venda por ano e UF, usando a função aggregate():</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>dados_vendaProdBruta <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(valor_venda_r <span class="sc">~</span> ano_base <span class="sc">+</span> uf, ProdBruta, sum)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>dados_vendaProdBenef <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(valor_venda_r <span class="sc">~</span> ano_base <span class="sc">+</span> uf, ProdBenef, sum)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Crie um gráfico de barras usando a biblioteca ggplot2:</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dados_vendaProdBruta, <span class="fu">aes</span>(<span class="at">x =</span> uf, <span class="at">y =</span> valor_venda_r, <span class="at">fill =</span> <span class="fu">factor</span>(ano_base))) <span class="sc">+</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"UF"</span>, <span class="at">y =</span> <span class="st">"Valor de venda (R$)"</span>, <span class="at">fill =</span> <span class="st">"Ano"</span>) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Valor total das vendas de Produção Bruta por ano e UF"</span>) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># scale_y_continuous(labels = scales::comma_format()) +</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#scale_y_continuous(sec.axis = sec_axis(~ . / 1000, name = "Volume de produção (mil unidades)")) +</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"AC"</span>, <span class="st">"AL"</span>, <span class="st">"AM"</span>, <span class="st">"AP"</span>, <span class="st">"BA"</span>, <span class="st">"CE"</span>, <span class="st">"DF"</span>, <span class="st">"ES"</span>, <span class="st">"GO"</span>, <span class="st">"MA"</span>, <span class="st">"MG"</span>, <span class="st">"MS"</span>, <span class="st">"MT"</span>, <span class="st">"PA"</span>, <span class="st">"PB"</span>, <span class="st">"PE"</span>, <span class="st">"PI"</span>, <span class="st">"PR"</span>, <span class="st">"RJ"</span>, <span class="st">"RN"</span>, <span class="st">"RO"</span>, <span class="st">"RR"</span>, <span class="st">"RS"</span>, <span class="st">"SC"</span>, <span class="st">"SE"</span>, <span class="st">"SP"</span>, <span class="st">"TO"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dados_vendaProdBenef, <span class="fu">aes</span>(<span class="at">x =</span> uf, <span class="at">y =</span> valor_venda_r, <span class="at">fill =</span> <span class="fu">factor</span>(ano_base))) <span class="sc">+</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"UF"</span>, <span class="at">y =</span> <span class="st">"Valor de venda (R$)"</span>, <span class="at">fill =</span> <span class="st">"Ano"</span>) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Valor total das vendas de Produção Beneficiada por ano e UF"</span>) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># scale_y_continuous(labels = scales::comma_format()) +</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#scale_y_continuous(sec.axis = sec_axis(~ . / 1000, name = "Volume de produção (mil unidades)")) +</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"AC"</span>, <span class="st">"AL"</span>, <span class="st">"AM"</span>, <span class="st">"AP"</span>, <span class="st">"BA"</span>, <span class="st">"CE"</span>, <span class="st">"DF"</span>, <span class="st">"ES"</span>, <span class="st">"GO"</span>, <span class="st">"MA"</span>, <span class="st">"MG"</span>, <span class="st">"MS"</span>, <span class="st">"MT"</span>, <span class="st">"PA"</span>, <span class="st">"PB"</span>, <span class="st">"PE"</span>, <span class="st">"PI"</span>, <span class="st">"PR"</span>, <span class="st">"RJ"</span>, <span class="st">"RN"</span>, <span class="st">"RO"</span>, <span class="st">"RR"</span>, <span class="st">"RS"</span>, <span class="st">"SC"</span>, <span class="st">"SE"</span>, <span class="st">"SP"</span>, <span class="st">"TO"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Para se obter um melhor dimensionamento entre as diferenças dos montantes relacionados a venda dos produtos brutos e a venda dos produtos beneficiados, foi utilizada a função faced_wrap, colocando os gráficos lado a lado e dentro da mesma escala:</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>dados_vendaProdBruta<span class="sc">$</span>tipo <span class="ot">&lt;-</span> <span class="st">"Produção Bruta"</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>dados_vendaProdBenef<span class="sc">$</span>tipo <span class="ot">&lt;-</span> <span class="st">"Produção Beneficiada"</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>dados_venda <span class="ot">&lt;-</span> <span class="fu">rbind</span>(dados_vendaProdBruta, dados_vendaProdBenef)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dados_venda, <span class="fu">aes</span>(<span class="at">x =</span> uf, <span class="at">y =</span> valor_venda_r, <span class="at">fill =</span> <span class="fu">factor</span>(ano_base))) <span class="sc">+</span> </span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"UF"</span>, <span class="at">y =</span> <span class="st">"Valor de venda (R$)"</span>, <span class="at">fill =</span> <span class="st">"Ano"</span>) <span class="sc">+</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Valor total das vendas por tipo de produção, ano e UF"</span>) <span class="sc">+</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"AC"</span>, <span class="st">"AL"</span>, <span class="st">"AM"</span>, <span class="st">"AP"</span>, <span class="st">"BA"</span>, <span class="st">"CE"</span>, <span class="st">"DF"</span>, <span class="st">"ES"</span>, <span class="st">"GO"</span>, <span class="st">"MA"</span>, <span class="st">"MG"</span>, <span class="st">"MS"</span>, <span class="st">"MT"</span>, <span class="st">"PA"</span>, <span class="st">"PB"</span>, <span class="st">"PE"</span>, <span class="st">"PI"</span>, <span class="st">"PR"</span>, <span class="st">"RJ"</span>, <span class="st">"RN"</span>, <span class="st">"RO"</span>, <span class="st">"RR"</span>, <span class="st">"RS"</span>, <span class="st">"SC"</span>, <span class="st">"SE"</span>, <span class="st">"SP"</span>, <span class="st">"TO"</span>)) <span class="sc">+</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">size =</span> <span class="dv">8</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> tipo, <span class="at">nrow =</span> <span class="dv">1</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>             <span class="co"># , scales = "free"</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>             )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Com intuito de facilitar a visualização ano a ano, outra proposta é usar o shiny para criar um gráfico dinamico, com um slider que ajuste o ano para que o gráfico selecione apenas os valores bases dos estados para o determinado ano:</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Valor total das vendas de Produção Bruta por ano e UF"</span>),</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sliderInput</span>(<span class="st">"ano"</span>, <span class="st">"Ano base:"</span>, <span class="at">min =</span> <span class="fu">min</span>(dados_vendaProdBruta<span class="sc">$</span>ano_base), <span class="at">max =</span> <span class="fu">max</span>(dados_vendaProdBruta<span class="sc">$</span>ano_base), <span class="at">value =</span> <span class="fu">max</span>(dados_vendaProdBruta<span class="sc">$</span>ano_base))</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="st">"grafico"</span>)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>grafico <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    dados_venda_filtrado <span class="ot">&lt;-</span> <span class="fu">subset</span>(dados_vendaProdBruta, ano_base <span class="sc">==</span> input<span class="sc">$</span>ano)</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(dados_venda_filtrado, <span class="fu">aes</span>(<span class="at">x =</span> uf, <span class="at">y =</span> valor_venda_r, <span class="at">fill =</span> <span class="fu">factor</span>(ano_base))) <span class="sc">+</span> </span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"UF"</span>, <span class="at">y =</span> <span class="st">"Valor de venda (R$)"</span>, <span class="at">fill =</span> <span class="st">"Ano"</span>) <span class="sc">+</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>      <span class="co"># scale_y_continuous(labels = scales::comma_format()) +</span></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"AC"</span>, <span class="st">"AL"</span>, <span class="st">"AM"</span>, <span class="st">"AP"</span>, <span class="st">"BA"</span>, <span class="st">"CE"</span>, <span class="st">"DF"</span>, <span class="st">"ES"</span>, <span class="st">"GO"</span>, <span class="st">"MA"</span>, <span class="st">"MG"</span>, <span class="st">"MS"</span>, <span class="st">"MT"</span>, <span class="st">"PA"</span>, <span class="st">"PB"</span>, <span class="st">"PE"</span>, <span class="st">"PI"</span>, <span class="st">"PR"</span>, <span class="st">"RJ"</span>, <span class="st">"RN"</span>, <span class="st">"RO"</span>, <span class="st">"RR"</span>, <span class="st">"RS"</span>, <span class="st">"SC"</span>, <span class="st">"SE"</span>, <span class="st">"SP"</span>, <span class="st">"TO"</span>))</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p></p><div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div><p></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Valor total das vendas de Produção Beneficiada por ano e UF"</span>),</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sliderInput</span>(<span class="st">"ano"</span>, <span class="st">"Ano base:"</span>, <span class="at">min =</span> <span class="fu">min</span>(dados_vendaProdBenef<span class="sc">$</span>ano_base), <span class="at">max =</span> <span class="fu">max</span>(dados_vendaProdBenef<span class="sc">$</span>ano_base), <span class="at">value =</span> <span class="fu">max</span>(dados_vendaProdBenef<span class="sc">$</span>ano_base))</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="st">"grafico"</span>)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>grafico <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    dados_venda_filtrado <span class="ot">&lt;-</span> <span class="fu">subset</span>(dados_vendaProdBenef, ano_base <span class="sc">==</span> input<span class="sc">$</span>ano)</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(dados_venda_filtrado, <span class="fu">aes</span>(<span class="at">x =</span> uf, <span class="at">y =</span> valor_venda_r, <span class="at">fill =</span> <span class="fu">factor</span>(ano_base))) <span class="sc">+</span> </span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"UF"</span>, <span class="at">y =</span> <span class="st">"Valor de venda (R$)"</span>, <span class="at">fill =</span> <span class="st">"Ano"</span>) <span class="sc">+</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>      <span class="co"># scale_y_continuous(labels = scales::comma_format()) +</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"AC"</span>, <span class="st">"AL"</span>, <span class="st">"AM"</span>, <span class="st">"AP"</span>, <span class="st">"BA"</span>, <span class="st">"CE"</span>, <span class="st">"DF"</span>, <span class="st">"ES"</span>, <span class="st">"GO"</span>, <span class="st">"MA"</span>, <span class="st">"MG"</span>, <span class="st">"MS"</span>, <span class="st">"MT"</span>, <span class="st">"PA"</span>, <span class="st">"PB"</span>, <span class="st">"PE"</span>, <span class="st">"PI"</span>, <span class="st">"PR"</span>, <span class="st">"RJ"</span>, <span class="st">"RN"</span>, <span class="st">"RO"</span>, <span class="st">"RR"</span>, <span class="st">"RS"</span>, <span class="st">"SC"</span>, <span class="st">"SE"</span>, <span class="st">"SP"</span>, <span class="st">"TO"</span>))</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p></p><div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div><p></p>
+</div>
+</div>
+<section id="segmentação-da-base-de-dados-com-foco-em-ouro-e-prata" class="level3">
+<h3 class="anchored" data-anchor-id="segmentação-da-base-de-dados-com-foco-em-ouro-e-prata">Segmentação da base de dados, com foco em ouro e prata:</h3>
+<p>Como tem-se muitos dados e o gráfico fica poluído, dada a relevancia, análise será focada apenas em ouro ou prata, trabalhado apenas um subset da base:</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>ProdBruta_ouro_prata <span class="ot">&lt;-</span> <span class="fu">subset</span>(ProdBruta, <span class="st">`</span><span class="at">substancia_mineral</span><span class="st">`</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Ouro"</span>, <span class="st">"Prata"</span>))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ProdBruta_ouro_prata)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 207
+Columns: 14
+$ ano_base                                                         &lt;dbl&gt; 2010,…
+$ uf                                                               &lt;chr&gt; "AP",…
+$ classe_substancia                                                &lt;chr&gt; "Metá…
+$ substancia_mineral                                               &lt;chr&gt; "Ouro…
+$ unidade_de_medida_contido                                        &lt;chr&gt; "kg",…
+$ quantidade_producao_minerio_rom_t                                &lt;chr&gt; "7444…
+$ quantidade_contido                                               &lt;chr&gt; "20,1…
+$ indicacao_contido                                                &lt;chr&gt; "Au",…
+$ quantidade_venda_t                                               &lt;chr&gt; "0", …
+$ valor_venda_r                                                    &lt;dbl&gt; 0, 0,…
+$ quantidade_transformacao_consumo_utilizacao_t                    &lt;chr&gt; ",000…
+$ valor_transformacao_consumo_utilizacao_nesta_mina_r              &lt;chr&gt; ",000…
+$ quantidade_transferencia_para_transformacao_utilizacao_consumo_t &lt;chr&gt; ",000…
+$ valor_transferencia_para_transformacao_utilizacao_consumo_r      &lt;chr&gt; ",000…</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>ProdBenef_ouro_prata <span class="ot">&lt;-</span> <span class="fu">subset</span>(ProdBenef, <span class="st">`</span><span class="at">substancia_mineral</span><span class="st">`</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Ouro"</span>, <span class="st">"Prata"</span>))</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ProdBenef_ouro_prata)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 190
+Columns: 18
+$ ano_base                                                              &lt;dbl&gt; …
+$ uf                                                                    &lt;chr&gt; …
+$ classe_substancia                                                     &lt;chr&gt; …
+$ substancia_mineral                                                    &lt;chr&gt; …
+$ unidade_de_medida_producao                                            &lt;chr&gt; …
+$ unidade_de_medida_contido                                             &lt;chr&gt; …
+$ indicacao_contido                                                     &lt;chr&gt; …
+$ unidade_de_medida_venda                                               &lt;chr&gt; …
+$ unidade_de_medida_consumo_utilizacao_na_usina                         &lt;chr&gt; …
+$ unidade_de_medida_transferencia_para_transformacao_utilizacao_consumo &lt;chr&gt; …
+$ quantidade_producao                                                   &lt;chr&gt; …
+$ quantidade_contido                                                    &lt;chr&gt; …
+$ quantidade_venda                                                      &lt;chr&gt; …
+$ valor_venda_r                                                         &lt;dbl&gt; …
+$ quantidade_consumo_utilizacao_na_usina                                &lt;dbl&gt; …
+$ valor_consumo_utilizacao_na_usina_r                                   &lt;chr&gt; …
+$ quantidade_transferencia_para_transformacao_utilizacao_consumo        &lt;dbl&gt; …
+$ valor_transferencia_para_transformacao_utilizacao_consumo_r           &lt;chr&gt; …</code></pre>
+</div>
+</div>
+<p>Cálculo do valor total de venda por ano e UF, usando a função aggregate():</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>dados_vendaProdBruta_ouro_prata <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(valor_venda_r <span class="sc">~</span> ano_base <span class="sc">+</span> uf, ProdBruta_ouro_prata, sum)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>dados_vendaProdBenef_ouro_prata <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(valor_venda_r <span class="sc">~</span> ano_base <span class="sc">+</span> uf, ProdBenef_ouro_prata, sum)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Crie um gráfico de barras usando a biblioteca ggplot2:</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dados_vendaProdBruta_ouro_prata, <span class="fu">aes</span>(<span class="at">x =</span> uf, <span class="at">y =</span> valor_venda_r, <span class="at">fill =</span> <span class="fu">factor</span>(ano_base))) <span class="sc">+</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"UF"</span>, <span class="at">y =</span> <span class="st">"Valor de venda (R$)"</span>, <span class="at">fill =</span> <span class="st">"Ano"</span>) <span class="sc">+</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Valor total de venda por ano e UF"</span>) <span class="sc">+</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># scale_y_continuous(labels = scales::comma_format()) +</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"AC"</span>, <span class="st">"AL"</span>, <span class="st">"AM"</span>, <span class="st">"AP"</span>, <span class="st">"BA"</span>, <span class="st">"CE"</span>, <span class="st">"DF"</span>, <span class="st">"ES"</span>, <span class="st">"GO"</span>, <span class="st">"MA"</span>, <span class="st">"MG"</span>, <span class="st">"MS"</span>, <span class="st">"MT"</span>, <span class="st">"PA"</span>, <span class="st">"PB"</span>, <span class="st">"PE"</span>, <span class="st">"PI"</span>, <span class="st">"PR"</span>, <span class="st">"RJ"</span>, <span class="st">"RN"</span>, <span class="st">"RO"</span>, <span class="st">"RR"</span>, <span class="st">"RS"</span>, <span class="st">"SC"</span>, <span class="st">"SE"</span>, <span class="st">"SP"</span>, <span class="st">"TO"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Cálculo do valor total de venda por ano e UF, usando a função aggregate():</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>dados_vendaProdBenef_ouro_prata <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(valor_venda_r <span class="sc">~</span> ano_base <span class="sc">+</span> uf, ProdBenef_ouro_prata, sum)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Crie um gráfico de barras usando a biblioteca ggplot2:</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dados_vendaProdBenef_ouro_prata, <span class="fu">aes</span>(<span class="at">x =</span> uf, <span class="at">y =</span> valor_venda_r, <span class="at">fill =</span> <span class="fu">factor</span>(ano_base))) <span class="sc">+</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"UF"</span>, <span class="at">y =</span> <span class="st">"Valor de venda (R$)"</span>, <span class="at">fill =</span> <span class="st">"Ano"</span>) <span class="sc">+</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Valor total de venda por ano e UF"</span>) <span class="sc">+</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># scale_y_continuous(labels = scales::comma_format()) +</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"AC"</span>, <span class="st">"AL"</span>, <span class="st">"AM"</span>, <span class="st">"AP"</span>, <span class="st">"BA"</span>, <span class="st">"CE"</span>, <span class="st">"DF"</span>, <span class="st">"ES"</span>, <span class="st">"GO"</span>, <span class="st">"MA"</span>, <span class="st">"MG"</span>, <span class="st">"MS"</span>, <span class="st">"MT"</span>, <span class="st">"PA"</span>, <span class="st">"PB"</span>, <span class="st">"PE"</span>, <span class="st">"PI"</span>, <span class="st">"PR"</span>, <span class="st">"RJ"</span>, <span class="st">"RN"</span>, <span class="st">"RO"</span>, <span class="st">"RR"</span>, <span class="st">"RS"</span>, <span class="st">"SC"</span>, <span class="st">"SE"</span>, <span class="st">"SP"</span>, <span class="st">"TO"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Para visualizar de modo comparável, tem-se:</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>dados_vendaProdBruta_ouro_prata<span class="sc">$</span>tipo <span class="ot">&lt;-</span> <span class="st">"Produção Bruta de ouro e prata"</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>dados_vendaProdBenef_ouro_prata<span class="sc">$</span>tipo <span class="ot">&lt;-</span> <span class="st">"Produção Beneficiada de ouro e prata"</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>dados_venda <span class="ot">&lt;-</span> <span class="fu">rbind</span>(dados_vendaProdBruta_ouro_prata, dados_vendaProdBenef_ouro_prata)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dados_venda, <span class="fu">aes</span>(<span class="at">x =</span> uf, <span class="at">y =</span> valor_venda_r, <span class="at">fill =</span> <span class="fu">factor</span>(ano_base))) <span class="sc">+</span> </span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"UF"</span>, <span class="at">y =</span> <span class="st">"Valor de venda (R$)"</span>, <span class="at">fill =</span> <span class="st">"Ano"</span>) <span class="sc">+</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Valor total das vendas de ouro e prata por tipo de produção, ano e UF"</span>) <span class="sc">+</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"AC"</span>, <span class="st">"AL"</span>, <span class="st">"AM"</span>, <span class="st">"AP"</span>, <span class="st">"BA"</span>, <span class="st">"CE"</span>, <span class="st">"DF"</span>, <span class="st">"ES"</span>, <span class="st">"GO"</span>, <span class="st">"MA"</span>, <span class="st">"MG"</span>, <span class="st">"MS"</span>, <span class="st">"MT"</span>, <span class="st">"PA"</span>, <span class="st">"PB"</span>, <span class="st">"PE"</span>, <span class="st">"PI"</span>, <span class="st">"PR"</span>, <span class="st">"RJ"</span>, <span class="st">"RN"</span>, <span class="st">"RO"</span>, <span class="st">"RR"</span>, <span class="st">"RS"</span>, <span class="st">"SC"</span>, <span class="st">"SE"</span>, <span class="st">"SP"</span>, <span class="st">"TO"</span>)) <span class="sc">+</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">size =</span> <span class="dv">8</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> tipo, <span class="at">nrow =</span> <span class="dv">1</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>             <span class="co"># , scales = "free"</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>             )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>fonte dos dados: https://dados.gov.br/dados/conjuntos-dados/anuario-mineral-brasileiro-amb</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiada");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

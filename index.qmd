@@ -1,0 +1,251 @@
+---
+title: "Trabalho final"
+author: "Kobayashi"
+format: html
+editor: visual
+code-fold: true
+lang: pt
+---
+
+## Relatórios Reprodutíveis com R + Quarto
+
+Este é o resultado de um projeto básico feito no ambiente QUARTO, usando linguagem R, dentro do RStudio.
+
+A ideia deste projeto é aplicar os conceitos vistos nas aulas do curso de extensão: "[Relatórios Reprodutíveis com R - EaD (Noturno)](https://beatrizmilz.github.io/2023-curso-de-verao-ime-usp-relatorios/)", curso de verão 2023, do IME-USP no período de 23/01/2023 à 06/02/2023.
+
+Este curso foi ministrado pela **Beatriz Milz**, com auxílio dos monitores: **Alan da Silva, Alexandre Moura dos Santos, Beatriz Proença Carvalho, Tatyane Paz Dominguez dos Santos Alves**. Mais detalhes sobre cada um podem ser encontrados na seguinte página: https://beatrizmilz.github.io/2023-curso-de-verao-ime-usp-relatorios/profs.html
+
+---------------------------//---------------------------------
+
+## Análise de estados que mais vendem minérios, por ano
+
+Na sequencia, foi realizada uma análise da base de dados da Agência Nacional de Mineração - ANM, para ter uma ideia do montante relacionado a vendas de minérios, em especial do ouro e da prata. Para isso, os datasets escolhidos foram: AMB - Produção bruta AMB - Produção beneficiada
+
+Nesta análise serão apresentados os estados brasileiros que mais produzem e os que mais beneficiam metais preciosos como o ouro, a prata.
+
+Da base de dados de produção bruta, inicialmente faz-se necessária a limpeza da base:
+
+```{r}
+comment = NA
+
+# importação das bibliotecas:
+
+library(tidyverse)
+library(janitor)
+
+ProdBruta <- read_csv("Producao_Bruta.csv")
+ProdBruta <- janitor::clean_names(ProdBruta)
+colnames(ProdBruta)
+
+ProdBenef <- read_csv("Producao_Beneficiada.csv")
+ProdBenef <- janitor::clean_names(ProdBenef) 
+colnames(ProdBenef)
+
+```
+
+Com o intuito exploratório, será feita a abertura de todos tipos de minerais relacionados nas 2 bases de dados de Produção:
+
+```{r}
+(ProdBruta_tipos <- unique(ProdBruta$substancia_mineral))
+```
+
+```{r}
+(ProdBenef_tipos <- unique(ProdBenef$substancia_mineral))
+```
+
+Calculo do valor total de venda por ano e UF, usando a função aggregate():
+
+```{r}
+dados_vendaProdBruta <- aggregate(valor_venda_r ~ ano_base + uf, ProdBruta, sum)
+dados_vendaProdBenef <- aggregate(valor_venda_r ~ ano_base + uf, ProdBenef, sum)
+```
+
+Crie um gráfico de barras usando a biblioteca ggplot2:
+
+```{r}
+ggplot(dados_vendaProdBruta, aes(x = uf, y = valor_venda_r, fill = factor(ano_base))) + 
+  geom_bar(stat = "identity") +
+  labs(x = "UF", y = "Valor de venda (R$)", fill = "Ano") +
+  ggtitle("Valor total das vendas de Produção Bruta por ano e UF") +
+  theme_bw() +
+  # scale_y_continuous(labels = scales::comma_format()) +
+  #scale_y_continuous(sec.axis = sec_axis(~ . / 1000, name = "Volume de produção (mil unidades)")) +
+  scale_x_discrete(limits = c("AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO"))
+
+
+ggplot(dados_vendaProdBenef, aes(x = uf, y = valor_venda_r, fill = factor(ano_base))) + 
+  geom_bar(stat = "identity") +
+  labs(x = "UF", y = "Valor de venda (R$)", fill = "Ano") +
+  ggtitle("Valor total das vendas de Produção Beneficiada por ano e UF") +
+  theme_bw() +
+  # scale_y_continuous(labels = scales::comma_format()) +
+  #scale_y_continuous(sec.axis = sec_axis(~ . / 1000, name = "Volume de produção (mil unidades)")) +
+  scale_x_discrete(limits = c("AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO"))
+
+```
+
+Para se obter um melhor dimensionamento entre as diferenças dos montantes relacionados a venda dos produtos brutos e a venda dos produtos beneficiados, foi utilizada a função faced_wrap, colocando os gráficos lado a lado e dentro da mesma escala:
+
+```{r}
+library(ggplot2)
+
+dados_vendaProdBruta$tipo <- "Produção Bruta"
+dados_vendaProdBenef$tipo <- "Produção Beneficiada"
+dados_venda <- rbind(dados_vendaProdBruta, dados_vendaProdBenef)
+
+ggplot(dados_venda, aes(x = uf, y = valor_venda_r, fill = factor(ano_base))) + 
+  geom_bar(stat = "identity") +
+  labs(x = "UF", y = "Valor de venda (R$)", fill = "Ano") +
+  ggtitle("Valor total das vendas por tipo de produção, ano e UF") +
+  theme_bw() +
+  scale_x_discrete(limits = c("AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO")) +
+  theme(axis.text.x = element_text(angle = 90, size = 8, hjust = 1)) +
+  facet_wrap(~ tipo, nrow = 1
+             # , scales = "free"
+             )
+
+```
+
+Com intuito de facilitar a visualização ano a ano, outra proposta é usar o shiny para criar um gráfico dinamico, com um slider que ajuste o ano para que o gráfico selecione apenas os valores bases dos estados para o determinado ano:
+
+```{r}
+library(shiny)
+library(ggplot2)
+
+ui <- fluidPage(
+  titlePanel("Valor total das vendas de Produção Bruta por ano e UF"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("ano", "Ano base:", min = min(dados_vendaProdBruta$ano_base), max = max(dados_vendaProdBruta$ano_base), value = max(dados_vendaProdBruta$ano_base))
+    ),
+    mainPanel(
+      plotOutput("grafico")
+    )
+  )
+)
+
+server <- function(input, output) {
+  output$grafico <- renderPlot({
+    dados_venda_filtrado <- subset(dados_vendaProdBruta, ano_base == input$ano)
+    ggplot(dados_venda_filtrado, aes(x = uf, y = valor_venda_r, fill = factor(ano_base))) + 
+      geom_bar(stat = "identity") +
+      labs(x = "UF", y = "Valor de venda (R$)", fill = "Ano") +
+      theme_bw() +
+      # scale_y_continuous(labels = scales::comma_format()) +
+      scale_x_discrete(limits = c("AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO"))
+  })
+}
+
+shinyApp(ui, server)
+
+```
+
+```{r}
+library(shiny)
+library(ggplot2)
+
+ui <- fluidPage(
+  titlePanel("Valor total das vendas de Produção Beneficiada por ano e UF"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("ano", "Ano base:", min = min(dados_vendaProdBenef$ano_base), max = max(dados_vendaProdBenef$ano_base), value = max(dados_vendaProdBenef$ano_base))
+    ),
+    mainPanel(
+      plotOutput("grafico")
+    )
+  )
+)
+
+server <- function(input, output) {
+  output$grafico <- renderPlot({
+    dados_venda_filtrado <- subset(dados_vendaProdBenef, ano_base == input$ano)
+    ggplot(dados_venda_filtrado, aes(x = uf, y = valor_venda_r, fill = factor(ano_base))) + 
+      geom_bar(stat = "identity") +
+      labs(x = "UF", y = "Valor de venda (R$)", fill = "Ano") +
+      theme_bw() +
+      # scale_y_continuous(labels = scales::comma_format()) +
+      scale_x_discrete(limits = c("AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO"))
+  })
+}
+
+shinyApp(ui, server)
+
+```
+
+### Segmentação da base de dados, com foco em ouro e prata:
+
+Como tem-se muitos dados e o gráfico fica poluído, dada a relevancia, análise será focada apenas em ouro ou prata, trabalhado apenas um subset da base:
+
+```{r}
+ProdBruta_ouro_prata <- subset(ProdBruta, `substancia_mineral` %in% c("Ouro", "Prata"))
+glimpse(ProdBruta_ouro_prata)
+```
+
+```{r}
+ProdBenef_ouro_prata <- subset(ProdBenef, `substancia_mineral` %in% c("Ouro", "Prata"))
+glimpse(ProdBenef_ouro_prata)
+```
+
+Cálculo do valor total de venda por ano e UF, usando a função aggregate():
+
+```{r}
+dados_vendaProdBruta_ouro_prata <- aggregate(valor_venda_r ~ ano_base + uf, ProdBruta_ouro_prata, sum)
+dados_vendaProdBenef_ouro_prata <- aggregate(valor_venda_r ~ ano_base + uf, ProdBenef_ouro_prata, sum)
+
+```
+
+Crie um gráfico de barras usando a biblioteca ggplot2:
+
+```{r}
+ggplot(dados_vendaProdBruta_ouro_prata, aes(x = uf, y = valor_venda_r, fill = factor(ano_base))) + 
+  geom_bar(stat = "identity") +
+  labs(x = "UF", y = "Valor de venda (R$)", fill = "Ano") +
+  ggtitle("Valor total de venda por ano e UF") +
+  theme_bw() +
+  # scale_y_continuous(labels = scales::comma_format()) +
+  scale_x_discrete(limits = c("AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO"))
+
+```
+
+Cálculo do valor total de venda por ano e UF, usando a função aggregate():
+
+```{r}
+dados_vendaProdBenef_ouro_prata <- aggregate(valor_venda_r ~ ano_base + uf, ProdBenef_ouro_prata, sum)
+
+```
+
+Crie um gráfico de barras usando a biblioteca ggplot2:
+
+```{r}
+ggplot(dados_vendaProdBenef_ouro_prata, aes(x = uf, y = valor_venda_r, fill = factor(ano_base))) + 
+  geom_bar(stat = "identity") +
+  labs(x = "UF", y = "Valor de venda (R$)", fill = "Ano") +
+  ggtitle("Valor total de venda por ano e UF") +
+  theme_bw() +
+  # scale_y_continuous(labels = scales::comma_format()) +
+  scale_x_discrete(limits = c("AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO"))
+
+```
+
+Para visualizar de modo comparável, tem-se:
+
+```{r}
+library(ggplot2)
+
+dados_vendaProdBruta_ouro_prata$tipo <- "Produção Bruta de ouro e prata"
+dados_vendaProdBenef_ouro_prata$tipo <- "Produção Beneficiada de ouro e prata"
+dados_venda <- rbind(dados_vendaProdBruta_ouro_prata, dados_vendaProdBenef_ouro_prata)
+
+ggplot(dados_venda, aes(x = uf, y = valor_venda_r, fill = factor(ano_base))) + 
+  geom_bar(stat = "identity") +
+  labs(x = "UF", y = "Valor de venda (R$)", fill = "Ano") +
+  ggtitle("Valor total das vendas de ouro e prata por tipo de produção, ano e UF") +
+  theme_bw() +
+  scale_x_discrete(limits = c("AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO")) +
+  theme(axis.text.x = element_text(angle = 90, size = 8, hjust = 1)) +
+  facet_wrap(~ tipo, nrow = 1
+             # , scales = "free"
+             )
+```
+
+fonte dos dados: https://dados.gov.br/dados/conjuntos-dados/anuario-mineral-brasileiro-amb

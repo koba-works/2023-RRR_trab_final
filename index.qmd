@@ -172,6 +172,12 @@ shinyApp(ui, server)
 
 ```
 
+ps: descobri depois que o Shiny não é gerado em uma página html estática, eu criei os apps que estão nos folders:
+
+graf_vendas_prod_bruta
+
+graf_vendas_prod_benef
+
 ### Segmentação da base de dados, com foco em ouro e prata:
 
 Como tem-se muitos dados e o gráfico fica poluído, dada a relevancia, análise será focada apenas em ouro ou prata, trabalhado apenas um subset da base:
